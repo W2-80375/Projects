@@ -1,0 +1,78 @@
+.seats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: antiquewhite ;
+  border: 5px solid black;
+}
+
+.seats > h3 {
+  color: black;
+  margin-top: 20px;
+}
+.screens {
+  margin-top: 24px;
+  background-color: black;
+  width: 581px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.screen {
+  color: red;
+}
+.seat-price {
+  margin-top: 30px;
+  display: flex;
+  background-color: rgb(83, 199, 235);
+  width: 581px;
+  justify-content: center;
+  align-items: center;
+}
+
+.seat-select {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.seats-select {
+  font-size: 20px;
+  margin-left: 20px;
+}
+.price {
+  font-size: 20px;
+}
+.totalprice {
+  margin-left: 50%;
+}
+.continue {
+  background-color: rgb(9, 41, 51);
+  margin-top: 20px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  color: forestgreen;
+}
+
+.seat-picker {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  
+}
+
+.allScreen  {
+padding-top: 60px;
+padding-left: 90px;
+padding-right: 90px;
+padding-bottom: 60px;
+border: 2px solid black;
+}

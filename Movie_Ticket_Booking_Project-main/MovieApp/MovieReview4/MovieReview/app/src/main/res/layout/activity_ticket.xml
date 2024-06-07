@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/ticket_layout.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <!-- Ticket Header -->
+    <TextView
+        android:id="@+id/ticketHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ticket :"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/ticketImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ticketHeader"
+        android:src="@drawable/ticket"/>
+
+    <!-- Ticket Details -->
+    <LinearLayout
+        android:id="@+id/ticketDetailsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/ticketImage"
+        android:layout_marginTop="16dp">
+
+        <!-- Event Name -->
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Name : Apurva Roy"/>
+        <TextView
+            android:id="@+id/eventName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Movie Name : Queen"/>
+
+        <!-- Date and Time -->
+        <TextView
+            android:id="@+id/eventDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date and Time: 2024-02-20 06:00 - 09:00"/>
+
+        <!-- Venue -->
+        <TextView
+            android:id="@+id/eventVenue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teater: INOX"/>
+
+        <!-- Seat Number -->
+        <TextView
+            android:id="@+id/seatNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seat: Seat10"/>
+
+    </LinearLayout>
+
+    <!-- Barcode Image -->
+    <ImageView
+        android:id="@+id/barcodeImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ticketDetailsContainer"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/barcode"/>
+
+    <!-- Footer -->
+    <TextView
+        android:id="@+id/footerText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/barcodeImage"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:text="Thank you for choosing our event!"/>
+
+    <Button
+        android:id="@+id/ticket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/footerText"
+        android:layout_gravity="center"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginTop="27dp"
+        android:layout_weight="1"
+        android:onClick="bookTicket"
+        android:text="Book another ticket" />
+
+</RelativeLayout>

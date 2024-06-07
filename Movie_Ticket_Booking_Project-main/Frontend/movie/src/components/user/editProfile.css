@@ -1,0 +1,39 @@
+
+body {
+    background-color: antiquewhite;
+  }
+  
+  .edit-account-card {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    width: 563px;
+    height: auto;
+    background-color: rgb(249, 213, 168);
+  }
+  
+  .form-label {
+    color: #333; 
+  }
+  
+  .form-control {
+    color: #666; 
+  }
+  
+  .btn-primary {
+    color: #fff;
+    margin-left: 200px;
+}
+  
+
+  .card-header{
+    text-align: center;
+  }
+
+  .card-body{
+    text-align: left;
+  }
+
+  
+  

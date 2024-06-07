@@ -1,0 +1,33 @@
+router.post('/register/client', (req, res) => {
+    const { email, password, first_name, last_name, phone_number, address, avatar_image_url } = req.body;
+
+    pool.query(
+        'INSERT INTO users (email, password, first_name, last_name, phone_number, address, user_type) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        [email, password, first_name, last_name, phone_number, address, 'client'],
+        (err, results) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Internal Server Error');
+                return;
+            }
+
+            // Get the inserted user's ID
+            const user_id = results.insertId;
+
+            // Create a client entry
+            pool.query(
+                'INSERT INTO clients (user_id, avetar_image_url) VALUES (?, ?)',
+                [user_id, avatar_image_url],
+                (err) => {
+                    if (err) {
+                        console.error(err);
+                        res.status(500).send('Internal Server Error');
+                        return;
+                    }
+
+                    res.status(201).send('Client registration successful');
+                }
+            );
+        }
+    );
+});

@@ -1,0 +1,282 @@
+CREATE DATABASE IF NOT EXISTS Movie;
+
+USE Movie;
+
+CREATE TABLE users
+(user_id INT PRIMARY KEY AUTO_INCREMENT,
+first_name VARCHAR(50),
+last_name VARCHAR(50),
+date_of_birth DATE,
+mob_no VARCHAR(14),
+email_id VARCHAR(100),
+password VARCHAR(25),
+role ENUM('admin', 'user')
+);
+
+INSERT INTO users VALUES(DEFAULT, "Rani", "Ingle", "1999-09-15", "1234567890", "rani@gmail.com", "rani@123", "user");
+INSERT INTO users VALUES(DEFAULT, "Pravin", "Bawne", "1995-09-15", "7654567890","pravin@gmail.com", "pravin@123", "user");
+INSERT INTO users VALUES(DEFAULT, "Apurva", "Roy", "1997-11-22", "8234567890","apurva@gmail.com", "apurva@123", "user");
+INSERT INTO users VALUES(DEFAULT, "Satyam", "Kumar", "1999-10-25", "5657567845","satyam@gmail.com", "satyam@123", "user");
+INSERT INTO users VALUES(DEFAULT, "Ankit", "Sinha", "1998-06-18", "7654563465","ankit@gmail.com", "ankit@123", "user");
+
+ALTER TABLE users
+MODIFY COLUMN role ENUM('admin', 'user') DEFAULT 'user';
+
+SELECT * FROM users;
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE movies
+(movie_id INT AUTO_INCREMENT,
+title VARCHAR(100),
+description VARCHAR(512),
+duration TIME,
+language VARCHAR(20),
+release_date DATE,
+PRIMARY KEY(movie_id)
+);
+
+INSERT INTO movies VALUES(DEFAULT, 'Animal', 'Ranvijay "Vijay" Singh is the son of Balbir Singh, a Delhi-based business magnate who heads the generational steel company called "Swastik Steels".','02:02:12','Hindi','2022-01-02');
+INSERT INTO movies VALUES(DEFAULT, 'Guntur Karam', 'Follows Guntur Karam, the king of the underworld of Guntur city, as he falls in love with a journalist working to expose the illegal activities in the city.','02:12:02','Telugu','2020-01-02');
+INSERT INTO movies VALUES(DEFAULT, '12th Fail', 'It is based on the 2019 eponymous non-fiction book by Anurag Pathak about Manoj Kumar Sharma, who overcame extreme poverty to become an Indian Police Service officer.','02:02:12','Hindi','2022-01-02','12thFail');
+
+ALTER TABLE movies ADD image VARCHAR(150);
+
+UPDATE movies SET image = "https://www.filmibeat.com/fanimg/movie/20092/guntur-kaaram-photos-images-85551.jpg" WHERE movie_id = 2;
+UPDATE movies SET image = "https://upload.wikimedia.org/wikipedia/en/f/f2/12th_Fail_poster.jpeg" WHERE movie_id = 3;
+UPDATE movies SET image = "https://w0.peakpx.com/wallpaper/301/770/HD-wallpaper-black-joker-black-joker-smoke-dark-dark-joker-joker-laugh-joker-smoke-thumbnail.jpg" WHERE movie_id = 4;
+UPDATE movies SET image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSizEkhmc21nEM-wgnJ3SeFFa4OEdmBRNCVIQ&usqp=CAU" WHERE movie_id = 5;
+
+SELECT * FROM movies;
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE screens
+(screen_id INT AUTO_INCREMENT,
+screen_name VARCHAR(100),
+status VARCHAR(15),
+PRIMARY KEY(screen_id)
+);
+
+INSERT INTO screens VALUES(DEFAULT, 'Audi-1', 'Available');
+INSERT INTO screens VALUES(DEFAULT, 'Audi-2', 'Available');
+INSERT INTO screens VALUES(DEFAULT, 'Audi-3', 'Available');
+INSERT INTO screens VALUES(DEFAULT, 'Audi-4', 'Available');
+
+ALTER TABLE screens ADD show_seat_id INT;
+ALTER TABLE screens ADD CONSTRAINT show_seat_id FOREIGN KEY (show_seat_id) REFERENCES show_seat(show_seat_id);
+
+SELECT * FROM screens;
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE theaters
+(theatre_id INT AUTO_INCREMENT,
+theatre_name VARCHAR(100),
+address VARCHAR(150),
+rating INT,
+total_seats INT,
+screen_id INT,
+PRIMARY KEY(theatre_id),
+FOREIGN KEY(screen_id) REFERENCES screens(screen_id)
+);
+
+INSERT INTO theaters VALUES(DEFAULT, 'PVR', 'Pune', 5, 100, 1);
+INSERT INTO theaters VALUES(DEFAULT, 'INOX', 'Pune', 4.1, 150, 2);
+INSERT INTO theaters VALUES(DEFAULT, 'Victory', 'Pune', 4.0, 120, 1);
+INSERT INTO theaters VALUES(DEFAULT, 'Abhiruchi', 'Pune', 4.2, 100, 3);
+INSERT INTO theaters VALUES(DEFAULT, 'Phoenix', 'Pune', 4.7, 100, 3);
+INSERT INTO theaters VALUES(DEFAULT, 'Cinepolis', 'Pune', 3.8, 100, 4);
+
+SELECT * FROM theaters;
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE shows
+(show_id INT AUTO_INCREMENT,
+date DATE,
+start_time TIME,
+screen_id INT,
+theatre_id INT,
+movie_id INT,
+PRIMARY KEY(show_id),
+FOREIGN KEY(screen_id) REFERENCES screens(screen_id),
+FOREIGN KEY(theatre_id) REFERENCES theaters(theatre_id),
+FOREIGN KEY(movie_id) REFERENCES movies(movie_id)
+);
+
+INSERT INTO shows VALUES(DEFAULT, '2024-01-01', '12:10:00', 1, 2, 2);
+INSERT INTO shows VALUES(DEFAULT, '2024-01-01', '03:00:00', 2, 3, 1);
+INSERT INTO shows VALUES(DEFAULT, '2024-02-01', '12:10:00', 3, 4, 2);
+INSERT INTO shows VALUES(DEFAULT, '2024-02-01', '03:10:00', 4, 5, 2);
+
+SELECT * FROM shows;
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE booking
+(booking_id INT AUTO_INCREMENT,
+number_of_seats INT,
+timestamp DATETIME,
+user_id INT,
+show_id INT,
+PRIMARY KEY(booking_id),
+FOREIGN KEY(user_id) REFERENCES users(user_id),
+FOREIGN KEY(show_id) REFERENCES shows(show_id)
+);
+
+
+INSERT INTO booking VALUES(DEFAULT,100,'2024-01-01 12:30:00', 1, 1);
+INSERT INTO booking VALUES(DEFAULT,100,'2024-01-01 12:30:00', 2, 2);
+INSERT INTO booking VALUES(DEFAULT,100,'2024-01-01 12:30:00', 3, 3);
+INSERT INTO booking VALUES(DEFAULT,100,'2024-01-01 12:30:00', 4, 4);
+
+ALTER TABLE booking ADD seat_no INT;
+
+select * from booking;
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE show_seat
+(show_seat_id INT AUTO_INCREMENT,
+theatre_id INT,
+status INT,
+price FLOAT,
+show_id INT,
+booking_id INT,
+seat_no INT,
+PRIMARY KEY(show_seat_id),
+FOREIGN KEY(theatre_id) REFERENCES theaters(theatre_id),
+FOREIGN KEY(show_id) REFERENCES shows(show_id),
+FOREIGN KEY(booking_id) REFERENCES booking(booking_id)
+);
+
+INSERT INTO show_seat VALUES(DEFAULT,6,1,'200.0',1,7,77);
+
+select * from show_seat;
+---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE payment
+(payment_id INT AUTO_INCREMENT,
+amount FLOAT,
+payment_date_time DATETIME,
+payment_method INT,
+user_id INT,
+show_id INT,
+payment_status VARCHAR(20),
+booking_id INT,
+PRIMARY KEY(payment_id),
+FOREIGN KEY(user_id) REFERENCES users(user_id),
+FOREIGN KEY(show_id) REFERENCES shows(show_id),
+FOREIGN KEY(booking_id) REFERENCES booking(booking_id)
+);
+
+INSERT INTO payment VALUES(DEFAULT,'123.3','2023-12-20 12:20:00',1,6,1,'paid',6);
+INSERT INTO payment VALUES(DEFAULT,'123.3','2023-12-20 11:20:00',1,7,6,'paid',7);
+ ---------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
+ 
+
+ //===============android Document==============
+
+ const express = require('express');
+const mysql = require('mysql');
+const config = require('config');
+const jwt = require('jsonwebtoken');
+const app = express.Router();
+const utils = require("../utils")
+
+const connectionDetails = mysql.createConnection( {
+    host: config.get("SERVER"),
+    database: config.get("DATABASE"),
+    user: config.get("USER"),
+    password: config.get("PASSWORD"),
+})
+
+
+
+app.post('/', (req, res) => {
+    const { email, password } = req.body;
+    console.log(email);
+    console.log(password);
+
+    connectionDetails.query(
+        'SELECT user_id, first_name, last_name, role FROM users WHERE email_id = ? AND password = ?',
+        [email, password],
+        (err, results) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Internal Server Error');
+                return;
+            }
+
+            if (results.length === 1) {
+                const user = results[0];
+
+                // Generate a JWT token
+                const token = jwt.sign({ user_id: user.user_id, role: user.role }, config.get('jwtSecret'), {
+                    expiresIn: '1h'  // Token expiration time, adjust as needed
+                });
+
+                // Return user details and token upon successful login
+                // res.status(200).json({
+                //     user_id: user.user_id,
+                //     first_name: user.first_name,
+                //     last_name: user.last_name,
+                //     role : user.role,
+                //     token: token
+                // });
+                // res.send(
+                //     "status" : "success",
+                //     "data" : [
+                //     {
+                //             user_id: user.user_id,
+                //             first_name: user.first_name,
+                //             last_name: user.last_name,
+                //             role : user.role,
+                //             token: token
+                // }])
+                console.log(results)
+                res.send(utils.createResult(err,  results))
+                
+
+            } else {
+                // Incorrect credentials
+                res.status(401).send('Invalid email or password');
+            }
+        }
+    );
+});
+
+module.exports = app;
+
+//====================utils.js====================
+//=================================================
+
+
+function createResult(error, data) {
+    var result = {}
+    if (error) {
+      result["status"] = "error"
+      result["error"] = error
+    } else {
+      result["status"] = "success"
+      result["data"] = data
+    }
+    return result
+  }
+  
+  module.exports = { createResult }
+  
+    
+    

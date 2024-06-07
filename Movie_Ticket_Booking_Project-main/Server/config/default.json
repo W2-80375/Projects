@@ -1,0 +1,8 @@
+{
+    "PORT": 4000,
+    "SERVER": "localhost",
+    "DATABASE": "Movie",
+    "USER": "root",
+    "PASSWORD": "manager",
+    "jwtSecret": "mbsrar"
+}

@@ -1,0 +1,104 @@
+.home {
+  background-color: antiquewhite
+}
+
+#carouselExampleCaptions {
+  margin-top: 1px;
+}
+
+.carousel-inner img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.carousel-caption h5 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.carousel-caption p {
+  color: #ddd;
+}
+
+
+.card {
+  margin-top: 4px;
+  background-color: rgb(249, 213, 168);
+  border: 1px solid #0e0d0d;
+  transition: transform 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: fill;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+
+.row-cols-1.row-cols-md-4 {
+  flex-wrap: nowrap;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+
+.card {
+  border: 1px solid #ddd;
+}
+
+.card-with-fixed-height {
+  height: 300px;
+
+}
+
+.card {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 434px;
+  width: 347px;
+  margin: auto;
+  display: in;
+}
+
+
+.card-img-top {
+  height: 370px;
+  object-fit: fill;
+  border-radius: 10px 10px 0 0;
+}
+
+
+
+a {
+  
+  text-decoration: none;
+
+}

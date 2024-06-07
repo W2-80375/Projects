@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorTextPrimary">
+
+    <androidx.appcompat.widget.Toolbar
+        android:background="@color/teal_700"
+        android:id="@+id/toolBar"
+        app:title="Select the Seat..."
+        app:titleTextColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Navigation Bar -->
+
+        <Button
+            android:id="@+id/pickDateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pick date"
+            android:layout_marginTop="70dp"
+            android:textColor="@color/white"
+            tools:ignore="NotSibling" />
+        <!-- Add any additional elements you want in the navigation bar -->
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="398dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/pickDateBtn"
+        app:layout_constraintTop_toBottomOf="@+id/pickDateBtn">
+
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="3:00 pm to 6:00 pm" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="6:00 pm to 9:00 pm" />
+
+
+    </RadioGroup>
+
+    <!-- Scrollable Content -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_above="@id/btnBook"
+        android:layout_below="@id/radioGroup"
+        android:layout_marginTop="-4dp"
+        android:layout_marginBottom="4dp">
+
+
+        <!-- GridLayout for Seat Selection -->
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:alignmentMode="alignMargins"
+            android:columnCount="4"
+            android:orientation="vertical"
+            android:rowCount="7"
+            android:useDefaultMargins="true">
+
+            <!-- Seat buttons will be added programmatically here -->
+            <!-- Example of a small square seat button -->
+
+
+            <!-- Add more seat buttons as needed -->
+
+        </GridLayout>
+
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/selectedDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <!-- Book Button -->
+    <Button
+        android:id="@+id/btnBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book"
+        android:background="#001E2C"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"/>
+</RelativeLayout>

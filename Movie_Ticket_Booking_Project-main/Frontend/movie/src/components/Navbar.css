@@ -1,0 +1,128 @@
+
+.navbar {
+  background-color: #343a40; 
+}
+
+.navbar-brand {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.navbar-brand:hover {
+  color: #ffffff; 
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff; 
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff; 
+  margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff; 
+}
+
+
+.nav-item.active .nav-link {
+  color: #28a745; 
+}
+
+
+.form-control {
+  margin-right: 10px;
+}
+
+.btn-outline-success {
+  color: #28a745;
+  border-color: #28a745; 
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: #ffffff; 
+  border-color: #28a745; 
+}
+/* Profile Picture */
+.profile-pic{
+  display: inline-block;
+  vertical-align: middle;
+   width: 50px;
+   height: 50px;
+   overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-pic img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.profile-menu .dropdown-menu {
+ right: 0;
+ left: unset;
+}
+.profile-menu .fa-fw {
+ margin-right: 10px;
+}
+
+.toggle-change::after {
+ border-top: 0;
+ border-bottom: 0.3em solid;
+}
+.dropdown-item:hover {
+  background-color: #495057; 
+  color: #fff; 
+}
+
+.dropdown-menu li {
+  cursor: pointer;
+}
+
+
+.dropdown-menu li:hover {
+  background-color: #495057;
+  color: #fff; 
+}
+
+/* Navbar.css */
+.logo {
+  width: 72px;
+  height: 55px;
+  margin-right: 10px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  margin: 8px;
+}
+
+card-img-top {
+  height: 250px;
+  margin-left: 2px;
+  object-fit: fill;
+  border-radius: 10px 10px 0 0;
+}
+.card-img {
+  height: 250px;
+  object-fit: none;
+  width: 398px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+/* .card {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  overflow: -moz-hidden-unscrollable;
+  padding: 7px;
+  height: 500px;
+  width: 419px;
+  margin-bottom: 8px;
+} */
+
+
+

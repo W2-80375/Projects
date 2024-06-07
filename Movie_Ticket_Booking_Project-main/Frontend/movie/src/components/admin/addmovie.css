@@ -1,0 +1,56 @@
+
+.add-movie-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+
+.add-movie-card {
+  width: 400px;
+  background-color:rgb(249, 213, 168);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.add-movie-header {
+  color: #333;
+  padding: 15px;
+  text-align: center;
+}
+
+.add-movie-form {
+  padding: 20px;
+}
+
+.add-movie-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-movie-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-movie-button:hover {
+  background-color: #0056b3;
+}
+
+.add-movie-card{
+  width: 500px;
+}
+
+.add-movie-button{
+  margin-left: 160px;
+}

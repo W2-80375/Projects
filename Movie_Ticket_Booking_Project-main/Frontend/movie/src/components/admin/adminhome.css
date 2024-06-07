@@ -1,0 +1,19 @@
+.row-cols-md-3>* {
+  flex: 0 0 auto;
+  width: 33.33333333%;
+  height: 600px;
+}
+
+.card {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-color: rgb(249, 213, 168);
+  height: 500px;
+}
+
+.btn-primary {
+  color: #fff;
+  margin-left: 38px;
+}
