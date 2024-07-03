@@ -4,9 +4,19 @@ import 'package:product_flutter/Models/product.dart';
 import 'package:product_flutter/Repositories/product_repository.dart';
 
 class ProductProvider extends ChangeNotifier {
-  List<Product> products = [];
+  // List<Product> products = [];
+  // Product? productToEdit;
+  // int pagesNumber = 0;
+
+  List<Product> products = [
+    Product(id: 1, name: "Inception", description: "A mind-bending thriller", image: "https://example.com/inception.jpg", price: 8.8),
+    Product(id: 2, name: "The Dark Knight", description: "A superhero film", image: "https://example.com/dark_knight.jpg", price: 9.0),
+    Product(id: 3, name: "Interstellar", description: "A space exploration film", image: "https://example.com/interstellar.jpg", price: 8.6),
+    Product(id: 4, name: "The Matrix", description: "A science fiction film", image: "https://example.com/matrix.jpg", price: 8.7),
+    Product(id: 5, name: "Fight Club", description: "A cult classic", image: "https://example.com/fight_club.jpg", price: 8.8),
+  ];
   Product? productToEdit;
-  int pagesNumber = 0;
+  int pagesNumber = 1;
 
   final ProductRepository _productRepository = ProductRepository();
 

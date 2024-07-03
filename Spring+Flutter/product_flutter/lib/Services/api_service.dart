@@ -11,7 +11,7 @@ class APIService {
   Future<http.Response> get(String url, Map<String, String> params) async {
     try {
       Uri uri = Uri.parse(_baseUrl + url).replace(queryParameters: params);
-      // params /*String|Iterable<String>*/
+      
       http.Response response = await http.get(uri);
       return response;
     } catch (e) {
